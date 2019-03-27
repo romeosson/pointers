@@ -4,9 +4,9 @@ using namespace std;
 
 void myswap(int * ptr1, int* ptr2)
 {
-  auto temp = ptr1;
-  ptr1 = ptr2;
-  ptr2 = temp;
+  auto temp = *ptr1;
+  *ptr1 = *ptr2;
+  *ptr2 = temp;
 }
 
 
@@ -18,9 +18,10 @@ int main()
 
   cout<<"a = "<<a<<", b = "<<b<<endl;
 
-//swap(a,b); //why does theirs work????   
+  int* ptr2= &b;
+  int* ptr1= &a;
  
-  myswap(a, b); // but mine doesn't ?!?!?!?!!!???
+  myswap(ptr1, ptr2); 
 
   cout<<"a = "<<a<<", b = "<<b<<endl;
 
